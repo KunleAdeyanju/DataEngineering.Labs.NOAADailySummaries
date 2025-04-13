@@ -73,7 +73,7 @@ def save_json_to_file(data, filename):
         print(f'An unexpected error occurred while saving the file: {e}')
 
 # implement me
-def read_all_json_files(file_path):
+def read_all_json_files_to_dataframe(file_path):
     json_files = pd.DataFrame()  # create an empty DataFrame
     # Loop through all files in the file_path directory
     for files in os.listdir(file_path):
