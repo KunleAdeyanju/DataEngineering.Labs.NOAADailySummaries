@@ -72,25 +72,7 @@ def save_json_to_file(data, filename):
         # Handle any other unexpected errors
         print(f'An unexpected error occurred while saving the file: {e}')
 
-# implement me
-def read_all_json_files_to_dataframe(file_path):
-    json_files = pd.DataFrame()  # create an empty DataFrame
-    # Loop through all files in the file_path directory
-    for files in os.listdir(file_path):
-        full_path = os.path.join(file_path, files)
 
-        try:
-            with open(full_path, 'r') as f:
-                data = json.load(f)
-            json_df = pd.DataFrame(data['results'])
-            # Add a 'source' column to track the file name
-            json_df['source'] = files
-            # concat the DataFrame to the json_files DataFrame
-            json_files = pd.concat([json_files, json_df], ignore_index=True)
-        except Exception as e:
-            print(f"Error reading {full_path}: {e}")
-    
-    return json_files
 
 if __name__ == '__main__':
     limit = 1000  # The maximum number of records to retrieve in one request
